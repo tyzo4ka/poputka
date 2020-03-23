@@ -4,5 +4,7 @@
         <h1 class="text-center">Регистрация</h1>
         <form action="{% url 'accounts:create' %}" method="post">
             {% include "partial/form.html" with button_text='Зарегистрироваться' %}
+            {% include 'registration/profile_formset.html' %}
+
         </form>
 {% endblock %}
