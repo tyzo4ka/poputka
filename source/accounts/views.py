@@ -29,9 +29,7 @@ class SignUp(CreateView):
     def form_valid_for_full(self, form, formset):
         self.object = form.save(commit=True)
         self.object.save()
-        # print(formset)
         formset.instance = self.object
-        # print(formset)
         formset.save()
         return HttpResponseRedirect(self.get_success_url())
 
