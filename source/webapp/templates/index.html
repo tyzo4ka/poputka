@@ -1,0 +1,231 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{#{% block style_links %}#}
+{#    <link rel="stylesheet" href="{% static 'css/style.css' %}">#}
+{#{% endblock %}#}
+
+{% block menu %}
+{#    <li class="nav-item active"><a class="nav-link" href="{% url 'webapp:file_create' %}">Загрузить файл</a></li>#}
+
+{#{% if user.is_authenticated %}#}
+{#    <li class="nav-item dropdown">#}
+{#        <a class="nav-link dropdown-toggle btn btn-light menu-button" href="#" id="iheDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
+{#            Вузы#}
+{#        </a>#}
+{#        <div class="dropdown-menu" aria-labelledby="iheDropdown">#}
+{#            <a class="dropdown-item" href="{% url 'webapp:university_create' %}">Добавление вуза</a>#}
+{#            <a class="dropdown-item" href="{% url 'webapp:university' %}">Список вузов</a>#}
+{#        </div>#}
+{#    </li>#}
+{#    <li class="nav-item dropdown">#}
+{#        <a class="nav-link dropdown-toggle btn btn-light menu-button" href="#" id="trainingDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
+{#            Тренинги#}
+{#        </a>#}
+{#        <div class="dropdown-menu" aria-labelledby="trainingDropdown">#}
+{#            <a class="dropdown-item" href="{% url 'webapp:training_list' %}">Тренинги</a>#}
+{#            <a class="dropdown-item" href="{% url 'webapp:training_create' %}">Добавить тренинг</a>#}
+{#        </div>#}
+{#    </li>#}
+{#    <li class="nav-item dropdown">#}
+{#        <a class="nav-link dropdown-toggle btn btn-light menu-button" href="#" id="accreditationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
+{#            Аккредитация#}
+{#        </a>#}
+{#        <div class="dropdown-menu" aria-labelledby="accreditationDropdown">#}
+{#            <a class="dropdown-item" href="{% url 'webapp:accreditation_list' %}">Все области аккредитации</a>#}
+{#            <a class="dropdown-item" href="{% url 'webapp:accreditation_create' %}">Добавить область аккредитации</a>#}
+{#        </div>#}
+{#    </li>#}
+{#    <li>#}
+{##}
+{#        <a class="nav-link btn btn-light menu-button" href="{% url 'webapp:sendlink' %}">Отправить ссылку</a>#}
+{#    </li>#}
+{#    {% endif %}#}
+{% endblock %}
+{% block content %}
+{#    {% include 'partial/simple_search.html' %}#}
+    <h1>Файлы:</h1>
+{#     {% if is_paginated %}#}
+{#         {% include 'partial/pagination.html' %}#}
+{#    {% endif %}#}
+    {% for ad in ads %}
+{#        <img src="{{ file.file.url }}" alt="ad_pic" class="card-img-top rounded mx-auto d-block">#}
+{#                          <h5 class="card-title">Card title</h5>#}
+        {{ ad.direction }}
+        {{ ad.time }}
+        {{ ad.seats }}
+        {{ ad.luggage }}
+{#        <div>Автор: {% if file.author %}<a href="{% url 'accounts:user_detail' file.author.pk %}">{{ file.author }}</a>{% else %}Аноним{% endif %}</div>#}
+{#        <div>Создано: {{ file.creation_date }}</div>#}
+{#        <a href="{{ file.file.url }}" class="btn btn-primary">Скачать</a>#}
+
+        <hr/>
+
+
+{#            <a href="{% url 'webapp:photo_view' photo.pk %}">More...</a>#}
+{#            {% if request.user.is_authenticated %}#}
+{#                <a href="{% url 'webapp:task_update' task.pk %}">Edit</a>#}
+{#                <a href="{% url 'webapp:task_delete' task.pk %}">Delete</a>#}
+{#            {% endif %}#}
+
+
+                {% endfor %}
+{#{% if messages %}#}
+{#    {% for message in messages %}#}
+{#        <div class="alert alert-success alert-dismissible fade show" role="alert">#}
+{#            {{ message }}#}
+{#            <button type="button" class="close" data-dismiss="alert" aria-label="Close">#}
+{#                <span aria-hidden="true">&times;</span>#}
+{#            </button>#}
+{#        </div>#}
+{#    {% endfor %}#}
+{#{% endif %}#}
+{#    {% if user.is_authenticated %}#}
+{#            {% if unchecked_available == True %}#}
+{#                <div class="alert alert-danger" role="alert">#}
+{#                  У вас имеются непроверенные резюме, пройдите по<a href="{% url 'webapp:expert_list' type='check' %}"#}
+{#                                                         class="alert-link"> ссылке</a>, что бы проверить.#}
+{#                </div>#}
+{#            {% endif %}#}
+{#        <div id="main" class="btn-group" role="group">#}
+{#            <form class="form-inline" action="" method="GET">#}
+{#                {% include 'partial/simple_search.html' %}#}
+{#                <input type="submit" class='btn btn-dark search-button' value="Поиск">#}
+{#            </form>#}
+{#        <div class="btn-group">#}
+{#            {% if perms.webapp.add_committee %}#}
+{#                <button id='buttonCreateCommittee' type="button" class="btn btn-dark" data-toggle="modal" data-target="#committeeModal">#}
+{#                    Сформировать новую комиссию#}
+{#                </button>#}
+{#            {% endif %}#}
+{##}
+{#            <button class="btn openbtn menu-button" onclick="openNav()">&#9776; Списки экспертов</button>#}
+{#        </div>#}
+{##}
+{#        </div>#}
+{#        <div id="mySidebar" class="sidebar">#}
+{#            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>#}
+{##}
+{#            <a href="#collapseExample" id="expertCreateDropdown" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" aria-controls="collapseExample" role="button">Добавить эксперта</a>#}
+{#            <div class="collapse" id="collapseExample">#}
+{#                <hr>#}
+{#                <a class="nav-link" href="{% url 'webapp:expert_create' %}?form=only_file" id="expertCreateDropdown" aria-haspopup="true" aria-expanded="false">#}
+{#                    Загрузить файл#}
+{#                </a>#}
+{#                <a class="nav-link" href="{% url 'webapp:expert_create' %}?form=full_resume" id="expertCreateDropdown" aria-haspopup="true" aria-expanded="false">#}
+{#                    Заполнить резюме#}
+{#                </a>#}
+{#            </div>#}
+{#            <hr>#}
+{#            <a id="academicExperts" href="{% url 'webapp:expert_list' type='academic expert' %}">Академ. специалисты</a>#}
+{#            <a id="ieExperts" href="{% url 'webapp:expert_list' type='international expert' %}">Международные эксперты</a>#}
+{#            <a id="sgkExperts" href="{% url 'webapp:expert_list' type='sgk expert' %}">Эксперты по СГК</a>#}
+{#            <a href="{% url 'webapp:expert_list' type='employer' %}">Работодатели</a>#}
+{#            <a href="{% url 'webapp:expert_list' type='student' %}">Студенты</a>#}
+{#            <hr>#}
+{#            <a href="{% url 'webapp:black_list' %}">Черный список</a>#}
+{#            <hr>#}
+{#            <a href="{% url 'webapp:expert_list' type='check' %}">Непроверенные резюме</a>#}
+{#        </div>#}
+{#    {% endif %}#}
+{#    <div class="modal fade" id="committeeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">#}
+{#        <div class="modal-dialog" role="document">#}
+{#            <div class="modal-content">#}
+{#                <div class="modal-header">#}
+{#                    <h5 class="modal-title" id="exampleModalLabel">Название комиссии</h5>#}
+{#                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">#}
+{#                        <span aria-hidden="true">&times;</span>#}
+{#                    </button>#}
+{#                </div>#}
+{#                <div class="modal-body">#}
+{#                    <form action="{% url 'webapp:committee_create' %}" method="POST">#}
+{#                        {% csrf_token %}#}
+{#                        {% include 'partial/search_form.html' with form=CommitteeForm %}#}
+{#                        <input class='btn btn-outline-dark' type="submit" id='buttonCreate' value="Создать">#}
+{#                    </form>#}
+{#                </div>#}
+{#                <div class="modal-footer">#}
+{#                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть окно</button>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#    {% if perms.webapp.view_committee %}#}
+{#        <h2 class="text-center pt-5 ">Комиссии процедур аккредитации</h2>#}
+{#        <div class="commitees-tab">#}
+{#            <button class="tablink" onclick="openPage('institutional', this, '#557238')">Институциональная аккредитация</button>#}
+{#            <button class="tablink" onclick="openPage('programme', this, '#748e3f')" id="defaultOpen">Программная аккредитация</button>#}
+{#            <button class="tablink" onclick="openPage('ive', this, '#a3a948')">Аккредитация СПО</button>#}
+{##}
+{#            <div id="institutional" class="upper-tabcontent">#}
+{#                <div class="tab">#}
+{#                    {% for committee in committees %}#}
+{#                        {% if committee.for_institutional_accr %}#}
+{#                            <button class="tablinks" data-committee="{{ committee.id }}">{{ committee.name }}</button>#}
+{#                        {% endif %}#}
+{#                    {% endfor %}#}
+{#                </div>#}
+{#                {% for committee in committees %}#}
+{#                    {% if committee.for_institutional_accr %}#}
+{#                        <div id="committee_tab_{{ committee.id }}" class="tabcontent" >#}
+{#                            <h3 id="{{ committee.id }}">{{ committee.name }}</h3>#}
+{#                        </div>#}
+{#                    {% endif %}#}
+{#                {% endfor %}#}
+{#            </div>#}
+{##}
+{#            <div id="programme" class="upper-tabcontent">#}
+{#                <h3 class="text-center">Программная аккредитация</h3>#}
+{#                <div class="tab">#}
+{#                    {% for committee in committees %}#}
+{#                        {% if committee.for_programme_accr %}#}
+{#                            <button class="tablinks" data-committee="{{ committee.id }}">{{ committee.name }}</button>#}
+{#                        {% endif %}#}
+{#                    {% endfor %}#}
+{#                </div>#}
+{#                {% for committee in committees %}#}
+{#                    {% if committee.for_programme_accr %}#}
+{#                        <div id="committee_tab_{{ committee.id }}" class="tabcontent" >#}
+{#                            <h3 id="{{ committee.id }}">{{ committee.name }}</h3>#}
+{#                        </div>#}
+{#                    {% endif %}#}
+{#                {% endfor %}#}
+{#            </div>#}
+{##}
+{#            <div id="ive" class="upper-tabcontent">#}
+{#                <h3 class="text-center">Среднее профильное образование</h3>#}
+{#                <div class="tab">#}
+{#                    {% for committee in committees %}#}
+{#                        {% if committee.for_ive_accr %}#}
+{#                            <button class="tablinks" data-committee="{{ committee.id }}">{{ committee.name }}</button>#}
+{#                        {% endif %}#}
+{#                    {% endfor %}#}
+{#                </div>#}
+{#                {% for committee in committees %}#}
+{#                    {% if committee.for_ive_accr %}#}
+{#                        <div id="committee_tab_{{ committee.id }}" class="tabcontent" >#}
+{#                            <h3 id="{{ committee.id }}">{{ committee.name }}</h3>#}
+{#                        </div>#}
+{#                    {% endif %}#}
+{#                {% endfor %}#}
+{#            </div>#}
+{#        </div>#}
+{#    {% endif %}#}
+{##}
+{##}
+{#    {% if perms.webapp.view_committee %}#}
+{#        <div class="tab">#}
+{#        </div>#}
+{#        {% for committee in committees %}#}
+{#            <button class="tablinks" data-committee="{{ committee.id }}">{{ committee.name }}</button>#}
+{#            <div id="committee_tab_{{ committee.id }}" class="tabcontent" >#}
+{#                <h3 id="{{ committee.id }}">{{ committee.name }}</h3>#}
+{##}
+{#            </div>#}
+{#        {% endfor %}#}
+{##}
+{#    {% endif %}#}
+{% endblock %}
+{% block scripts %}
+    <script src="{% static 'js/main.js' %}"></script>
+{% endblock %}
