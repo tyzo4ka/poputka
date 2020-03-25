@@ -63,3 +63,11 @@ class AnnounceUpdateView(UpdateView):
 
     def get_success_url(self):
         return reverse('webapp:index')
+
+
+class AnnounceDeleteView(DeleteView):
+    model = Ad
+    template_name = 'delete.html'
+
+    def get_success_url(self):
+        return reverse('webapp:index')
