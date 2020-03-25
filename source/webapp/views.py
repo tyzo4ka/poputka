@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, DetailView, DeleteView
 from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse
 
@@ -47,3 +47,9 @@ class AnnounceCreateView(CreateView):
 
     def get_success_url(self):
         return reverse('webapp:index')
+
+
+class AnnounceDetailView(DeleteView):
+    model = Ad
+    template_name = 'announce_detail.html'
+    context_object_name = 'announce'
