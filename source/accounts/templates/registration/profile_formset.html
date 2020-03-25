@@ -5,27 +5,24 @@
     <hr>
     <h3 class="mt-4 mb-4">Дополнительная информация</h3>
     <div id="additional_info_forms">
-        {% for field in formset %}
-            {{ field }}
-{#            <div class="form-group">#}
-{#                <label for="{{ field.id_for_label }}" class="mr-3 mt-3">{{ field.label }}</label>#}
-{#                {% if field|field_type == 'imagefield' or field|field_type == 'filefield' %}#}
-{#                    {{ field }}#}
-{#                {% elif field|field_type == 'datefield' %}#}
-{#                    {{ field|add_class:"form-control"|append_attr:"autocomplete:off" }}#}
-{#                {% elif field.name == 'name' %}#}
-{#                    {{ field|add_class:"form-control" }}#}
-{#                    <small class="form-text text-muted">{{ field.help_text }}</small>#}
-{#                {% else %}#}
-{#                    {{ field|add_class:"form-control" }}#}
-{#                {% endif %}#}
-{#                {% for error in field.errors %}#}
-{#                    <p class="text-danger">{{ error }}</p>#}
-{#                {% endfor %}#}
-{#            </div>#}
+        {% for form in formset %}
+            <div class="form-row" id="">
+                <div class="form-group col-md-3">
+                    {% include 'partial/form-field.html' with field=form.mobile_phone %}
+                </div>
+                <div class="form-group col-md-2">
+                    {% include 'partial/form-field.html' with field=form.country %}
+                </div>
+                <div class="form-group col-md-2">
+                    {% include 'partial/form-field.html' with field=form.city %}
+                </div>
+                <div class="form-group col-md-2">
+                    {% include 'partial/form-field.html' with field=form.notification %}
+                </div>
+                <div class="form-group col-md-2">
+                    {% include 'partial/form-field.html' with field=form.photo %}
+                </div>
+            </div>
         {% endfor %}
 
-    </div>
-    <div class="form-group text-left mb-4">
-        <button type="button" id="add_information_form" class="btn menu-button">Добавить ещё </button>
     </div>

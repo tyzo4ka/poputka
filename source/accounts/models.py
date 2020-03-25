@@ -11,7 +11,7 @@ class Profile(models.Model):
     mobile_phone = PhoneNumberField(max_length=20, verbose_name='Мобильный телефон')
     country = models.ForeignKey('Country', on_delete=models.CASCADE, related_name='profile_country', verbose_name='Страна')
     city = models.ForeignKey('City', on_delete=models.CASCADE, related_name='city', verbose_name='Город')
-    notification = models.BooleanField(verbose_name='Уведомления')
+    notification = models.BooleanField(default=True, verbose_name='Уведомления')
     photo = models.ImageField(upload_to='users_photo', null=True, blank=True, verbose_name='Фото')
 
 

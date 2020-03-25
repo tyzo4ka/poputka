@@ -7,5 +7,5 @@ app_name = 'webapp'
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
-    path('/announce/create/', AnnounceCreateView.as_view(), name='announce_create'),
+    path('announce/create/', AnnounceCreateView.as_view(), name='announce_create'),
 ]
