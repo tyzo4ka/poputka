@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, DetailView, DeleteView, UpdateView
 from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse
 
@@ -44,6 +44,30 @@ class AnnounceCreateView(CreateView):
         self.object.user_id = user.pk
         self.object.save()
         return HttpResponseRedirect(self.get_success_url())
+
+    def get_success_url(self):
+        return reverse('webapp:index')
+
+
+class AnnounceDetailView(DeleteView):
+    model = Ad
+    template_name = 'announce_detail.html'
+    context_object_name = 'announce'
+
+
+class AnnounceUpdateView(UpdateView):
+    model = Ad
+    template_name = 'change.html'
+    fields = ['direction', 'time', 'seats', 'luggage', 'place_from', 'place_to', 'car_number', 'car', 'price']
+    context_object_name = 'announce'
+
+    def get_success_url(self):
+        return reverse('webapp:index')
+
+
+class AnnounceDeleteView(DeleteView):
+    model = Ad
+    template_name = 'delete.html'
 
     def get_success_url(self):
         return reverse('webapp:index')
