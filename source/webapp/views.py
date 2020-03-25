@@ -11,8 +11,8 @@ class IndexView(ListView):
     template_name = 'index.html'
     context_object_name = 'ads'
 
-    def get_queryset(self, *args, **kwargs):
-            return Ad.objects.filter(user__profile__driver__status='free')
+    # def get_queryset(self, *args, **kwargs):
+    #         return Ad.objects.filter(user__profile__driver__status='free')
 
 
 class AnnounceCreateView(CreateView):
