@@ -33,6 +33,7 @@ class AnnounceCreateView(CreateView):
         # mobile_phone = form.cleaned_data['mobile_phone']
         self.object.direction = form.cleaned_data['direction']
         self.object.time = form.cleaned_data['time']
+        print(form.cleaned_data['time'])
         self.object.seats = form.cleaned_data['seats']
         self.object.luggage = form.cleaned_data['luggage']
         self.object.place_from = form.cleaned_data['place_from']
