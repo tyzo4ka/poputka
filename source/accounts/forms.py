@@ -4,7 +4,7 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth.forms import UserCreationForm
 from django.forms import inlineformset_factory
 
-from accounts.models import Profile
+from accounts.models import Profiles
 
 
 class SignUpForm(UserCreationForm):
@@ -29,5 +29,5 @@ class ProfileForm_2(forms.ModelForm):
         exclude = []
 
 
-ProfileFormset = inlineformset_factory(User, Profile, ProfileForm_2, extra=1,
+ProfileFormset = inlineformset_factory(User, Profiles, ProfileForm_2, extra=1,
                                          can_delete=True)

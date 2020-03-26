@@ -1,12 +1,8 @@
 from django.contrib import admin
 
-from accounts.models import Profile, Driver, Country, City
-from webapp.models import Ad, Photo
+from accounts.models import Profiles
+from webapp.models import Announcements
 
-admin.site.register(Profile)
-admin.site.register(Driver)
-admin.site.register(Country)
-admin.site.register(City)
-admin.site.register(Ad)
-admin.site.register(Photo)
+admin.site.register(Profiles)
+admin.site.register(Announcements)
 
